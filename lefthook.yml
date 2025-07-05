@@ -1,0 +1,21 @@
+pre-commit:
+  parallel: true
+  commands:
+    biome-check:
+      run: pnpm exec biome check --write --no-errors-on-unmatched --files-ignore-unknown=true {staged_files}
+      stage_fixed: true
+
+commit-msg:
+  commands:
+    lint-commit-message:
+      run: pnpm exec commitlint --edit {1}
+
+pre-push:
+  parallel: false
+  commands:
+    type-check:
+      run: pnpm exec tsc --noEmit
+    tests:
+      run: pnpm exec vitest run
+    biome-check:
+      run: pnpm exec biome check --no-errors-on-unmatched --files-ignore-unknown=true

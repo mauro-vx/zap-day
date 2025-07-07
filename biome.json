@@ -6,11 +6,13 @@
     "useIgnoreFile": false
   },
   "files": {
-    "ignoreUnknown": false
+    "ignoreUnknown": false,
+    "includes": ["src/**/*.{ts,tsx,json,css}"]
   },
   "formatter": {
     "enabled": true,
-    "indentStyle": "tab"
+    "indentStyle": "space",
+    "indentWidth": 2
   },
   "linter": {
     "enabled": true,
@@ -18,10 +20,7 @@
       "recommended": true,
       "a11y": "error"
     },
-    "includes": [
-      "**",
-      "!dist"
-    ]
+    "includes": ["**", "!dist"]
   },
   "javascript": {
     "formatter": {
@@ -32,9 +31,7 @@
   },
   "overrides": [
     {
-      "includes": [
-        "**/*.{ts,tsx}"
-      ],
+      "includes": ["**/*.{ts,tsx}"],
       "linter": {
         "rules": {
           "complexity": {
@@ -100,17 +97,13 @@
       }
     },
     {
-      "includes": [
-        "**/*.{ts,tsx}"
-      ],
+      "includes": ["**/*.{ts,tsx}"],
       "javascript": {
         "globals": []
       }
     },
     {
-      "includes": [
-        "**/*.{ts,tsx}"
-      ],
+      "includes": ["**/*.{ts,tsx}"],
       "linter": {
         "rules": {
           "complexity": {
@@ -146,9 +139,7 @@
       }
     },
     {
-      "includes": [
-        "**/*.{ts,tsx}"
-      ],
+      "includes": ["**/*.{ts,tsx}"],
       "linter": {
         "rules": {
           "complexity": {
@@ -174,9 +165,7 @@
       }
     },
     {
-      "includes": [
-        "**/*.{ts,tsx}"
-      ],
+      "includes": ["**/*.{ts,tsx}"],
       "linter": {
         "rules": {
           "correctness": {
@@ -187,17 +176,13 @@
       }
     },
     {
-      "includes": [
-        "**/*.{ts,tsx}"
-      ],
+      "includes": ["**/*.{ts,tsx}"],
       "linter": {
         "rules": {}
       }
     },
     {
-      "includes": [
-        "**/*.{ts,tsx}"
-      ],
+      "includes": ["**/*.{ts,tsx}"],
       "javascript": {
         "globals": [
           "onanimationend",

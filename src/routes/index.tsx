@@ -1,9 +1,14 @@
+import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
+import reactLogo from "@/assets/react.svg";
+import viteLogo from "@/assets/vite.svg";
 import { Button } from "@/components/ui/button.tsx";
-import viteLogo from "/vite.svg";
-import reactLogo from "./assets/react.svg";
 
-function App() {
+export const Route = createFileRoute("/")({
+  component: Index,
+});
+
+function Index() {
   const [count, setCount] = useState(0);
 
   return (
@@ -56,5 +61,3 @@ function App() {
     </div>
   );
 }
-
-export default App;

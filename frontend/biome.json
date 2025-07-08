@@ -1,0 +1,12 @@
+{
+	"root": false,
+	"files": {
+		"includes": ["src/**/*.{ts,tsx,json,css}", "!src/**/*.gen.ts"]
+	},
+	"linter": {
+		"rules": {
+			"a11y": "error"
+		},
+		"includes": ["**", "!dist"]
+	}
+}

@@ -9,12 +9,12 @@ lerna-debug.log*
 
 /node_modules/
 /.pnpm-store/
+/dist/
+/dist-ssr/
 *.local
+/.tanstack/
 
 # Editor directories and files
-.vscode/*
-!.vscode/extensions.json
-/.idea/
 .DS_Store
 *.suo
 *.ntvs*

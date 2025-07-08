@@ -14,8 +14,12 @@ pre-push:
   parallel: false
   commands:
     type-check:
-      run: pnpm exec tsc --noEmit
+      run: |
+        pnpm --filter "./frontend" exec tsc --noEmit
+        pnpm --filter "./backend" exec tsc --noEmit
     tests:
-      run: pnpm exec vitest run
+      run: |
+        pnpm --filter "./frontend" exec vitest run
+        pnpm --filter "./backend" exec vitest run
     biome-check:
       run: pnpm exec biome check --no-errors-on-unmatched --files-ignore-unknown=true

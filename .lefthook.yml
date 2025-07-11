@@ -21,7 +21,7 @@ pre-push:
     type-check-fe:
       run: grep "^frontend/" > /dev/null && pnpm --filter frontend exec tsc --noEmit || echo "skipped"
     type-check-be:
-      run: grep "^frontend/" > /dev/null && pnpm --filter backend exec tsc --noEmit || echo "skipped"
+      run: grep "^backend/" > /dev/null && pnpm --filter backend exec tsc --noEmit || echo "skipped"
 
     tests-fe:
       run: grep "^frontend/" > /dev/null && pnpm --filter frontend exec vitest run || echo "skipped"

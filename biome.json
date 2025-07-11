@@ -9,20 +9,23 @@
   "files": { "ignoreUnknown": false },
   "formatter": {
     "enabled": true,
+    "formatWithErrors": false,
     "indentStyle": "space",
     "indentWidth": 2,
-    "lineWidth": 120
+    "lineWidth": 120,
+    "lineEnding": "lf"
   },
   "linter": {
     "enabled": true,
     "rules": { "recommended": true },
-    "includes": ["**", "!dist"]
+    "includes": ["**"]
   },
   "javascript": {
     "formatter": {
       "quoteStyle": "double",
       "semicolons": "always",
-      "bracketSpacing": true
+      "bracketSpacing": true,
+      "trailingCommas": "all"
     }
   },
   "overrides": [

@@ -1,4 +1,29 @@
 {
   "name": "backend",
-  "version": "1.0.0"
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "dotenv -e ../.env nodemon src/index.ts",
+    "build": "tsc",
+    "biome:format": "pnpm exec biome format --write ./src",
+    "biome:fix": "pnpm exec biome lint --write ./src",
+    "biome:check": "pnpm exec biome check ./src",
+    "type-check": "tsc --noEmit",
+    "db:types": "kysely-codegen --env-file ../.env --out-file types/database.ts"
+  },
+  "keywords": [],
+  "license": "MIT",
+  "description": "",
+  "dependencies": {
+    "kysely": "^0.28.2",
+    "pg": "^8.16.3"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.11",
+    "@types/pg": "^8.15.4",
+    "dotenv-cli": "^8.0.0",
+    "kysely-codegen": "^0.18.5",
+    "nodemon": "^3.1.10",
+    "ts-node": "^10.9.2",
+    "typescript": "~5.8.3"
+  }
 }

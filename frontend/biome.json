@@ -7,6 +7,12 @@
 		"rules": {
 			"a11y": "error"
 		},
-		"includes": ["**", "!dist"]
+		"includes": ["!dist"]
+	},
+	"javascript": {
+		"formatter": {
+			"jsxQuoteStyle": "double",
+			"quoteProperties": "asNeeded"
+		}
 	}
 }

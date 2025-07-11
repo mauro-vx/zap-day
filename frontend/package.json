@@ -8,7 +8,8 @@
     "preview": "vite preview",
     "biome:format": "pnpm exec biome format --write ./src",
     "biome:fix": "pnpm exec biome lint --write ./src",
-    "biome:check": "pnpm exec biome check --write ./src"
+    "biome:check": "pnpm exec biome check --write ./src",
+    "type-check": "tsc --noEmit"
   },
   "dependencies": {
     "@radix-ui/react-slot": "^1.2.3",

@@ -3,12 +3,12 @@
   "private": true,
   "version": "0.0.0",
   "scripts": {
-    "format:frontend": "pnpm --filter frontend run biome:format",
-    "format:backend": "pnpm --filter backend run biome:format",
-    "lint:frontend": "pnpm --filter frontend run biome:check",
-    "lint:backend": "pnpm --filter backend run biome:check",
-    "fix:frontend": "pnpm --filter frontend run biome:fix",
-    "fix:backend": "pnpm --filter backend run biome:fix",
+    "format:frontend": "pnpm --filter frontend run lint-format",
+    "format:backend": "pnpm --filter backend run lint-format",
+    "lint:frontend": "pnpm --filter frontend run lint-check",
+    "lint:backend": "pnpm --filter backend run lint-check",
+    "fix:frontend": "pnpm --filter frontend run lint-fix",
+    "fix:backend": "pnpm --filter backend run lint-fix",
     "type-check:frontend": "pnpm --filter frontend run type-check",
     "type-check:backend": "pnpm --filter backend run type-check",
     "format": "pnpm run format:frontend && pnpm run format:backend",
@@ -19,13 +19,13 @@
     "commit:lint": "pnpm exec commitlint --edit $1"
   },
   "devDependencies": {
-    "frontend": "workspace:*",
-    "backend": "workspace:*",
     "@biomejs/biome": "^2.0.6",
     "@commitlint/cli": "^19.8.1",
     "@commitlint/config-conventional": "^19.8.1",
+    "backend": "workspace:*",
     "commitizen": "^4.3.1",
     "cz-conventional-changelog": "^3.3.0",
+    "frontend": "workspace:*",
     "lefthook": "^1.11.16"
   },
   "config": {

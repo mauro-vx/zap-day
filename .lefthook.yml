@@ -1,29 +1,32 @@
 pre-commit:
-  parallel: true
-  commands:
-    biome-check:
-      run: pnpm exec biome check --write --no-errors-on-unmatched --files-ignore-unknown=true {staged_files}
+  jobs:
+    - name: lint frontend
+      run: pnpm exec biome check --write --no-errors-on-unmatched --files-ignore-unknown=true {staged_files} && git add {staged_files}
       stage_fixed: true
 
-
 commit-msg:
-  commands:
-    lint-commit-message:
+  jobs:
+    - name: lint-commit-message
       run: pnpm exec commitlint --edit {1}
 
-
 pre-push:
-  parallel: false
   commands:
-    biome-check:
-      run: pnpm exec biome check --no-errors-on-unmatched --files-ignore-unknown=true {push_files} || echo "skipped"
+    type-check-frontend:
+      files: git diff --name-only origin/master...HEAD
+      glob: "frontend/**/*"
+      run: pnpm --filter frontend run type-check && pnpm --filter frontend run lint-check
 
-    type-check-fe:
-      run: grep "^frontend/" > /dev/null && pnpm --filter frontend exec tsc --noEmit || echo "skipped"
-    type-check-be:
-      run: grep "^backend/" > /dev/null && pnpm --filter backend exec tsc --noEmit || echo "skipped"
+    type-check-backend:
+      files: git diff --name-only origin/master...HEAD
+      glob: "backend/**/*"
+      run: pnpm --filter backend run type-check && pnpm --filter backend run lint-check
 
-    tests-fe:
-      run: grep "^frontend/" > /dev/null && pnpm --filter frontend exec vitest run || echo "skipped"
-    tests-be:
-      run: grep "^backend/" > /dev/null && pnpm --filter backend exec vitest run || echo "skipped"
+#    tests-frontend:
+#      files: git diff --name-only origin/master...HEAD
+#      glob: "frontend/**/*"
+#      run: pnpm run test:frontend
+#
+#    tests-backend:
+#      files: git diff --name-only origin/master...HEAD
+#      glob: "backend/**/*"
+#      run: pnpm run test:backend

@@ -1,5 +1,5 @@
 import { type Kysely, sql } from "kysely";
-import type { DB } from "../types/database";
+import type { DB } from "@/core/db/db.types";
 
 export async function setupSchema(db: Kysely<DB>) {
 	await db.schema

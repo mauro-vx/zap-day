@@ -2,13 +2,13 @@
   "name": "backend",
   "version": "1.0.0",
   "scripts": {
-    "dev": "dotenv -e ../.env nodemon src/index.ts",
+    "dev": "dotenv -e ../.env nodemon src/main.ts",
     "build": "tsc",
-    "biome:format": "pnpm exec biome format --write ./src",
-    "biome:fix": "pnpm exec biome lint --write ./src",
-    "biome:check": "pnpm exec biome check ./src",
+    "lint-format": "pnpm exec biome format --write ./src",
+    "lint-fix": "pnpm exec biome lint --write ./src",
+    "lint-check": "pnpm exec biome check ./src",
     "type-check": "tsc --noEmit",
-    "db:types": "kysely-codegen --env-file ../.env --out-file types/database.ts"
+    "db:types": "kysely-codegen --env-file ../.env --out-file src/core/db/db.types.ts"
   },
   "keywords": [],
   "license": "MIT",

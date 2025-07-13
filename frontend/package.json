@@ -6,9 +6,9 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "biome:format": "pnpm exec biome format --write ./src",
-    "biome:fix": "pnpm exec biome lint --write ./src",
-    "biome:check": "pnpm exec biome check --write ./src",
+    "lint-format": "pnpm exec biome format --write ./src",
+    "lint-fix": "pnpm exec biome lint --write ./src",
+    "lint-check": "pnpm exec biome check --write ./src",
     "type-check": "tsc --noEmit"
   },
   "dependencies": {

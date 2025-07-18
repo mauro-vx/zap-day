@@ -21,12 +21,12 @@ pre-push:
       glob: "backend/**/*"
       run: pnpm --filter backend run type-check && pnpm --filter backend run lint-check
 
-#    tests-frontend:
-#      files: git diff --name-only origin/master...HEAD
-#      glob: "frontend/**/*"
-#      run: pnpm run test:frontend
-#
-#    tests-backend:
-#      files: git diff --name-only origin/master...HEAD
-#      glob: "backend/**/*"
-#      run: pnpm run test:backend
+    tests-frontend:
+      files: git diff --name-only origin/master...HEAD
+      glob: "frontend/src/**/*"
+      run: pnpm run test:frontend
+
+    tests-backend:
+      files: git diff --name-only origin/master...HEAD
+      glob: "backend/src/**/*"
+      run: pnpm run test:backend

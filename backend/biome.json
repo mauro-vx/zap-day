@@ -1,6 +1,7 @@
 {
-	"root": false,
-	"files": {
-		"includes": ["src/**/*.{ts,json}"]
-	}
+  "root": false,
+  "extends": ["./../biome.json"],
+  "files": {
+    "includes": ["src/**/*.{ts,json}"]
+  }
 }

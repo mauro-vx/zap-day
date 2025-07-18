@@ -3,30 +3,30 @@
   "private": true,
   "version": "0.0.0",
   "scripts": {
-    "format:frontend": "pnpm --filter frontend run lint-format",
-    "format:backend": "pnpm --filter backend run lint-format",
-    "lint:frontend": "pnpm --filter frontend run lint-check",
-    "lint:backend": "pnpm --filter backend run lint-check",
-    "fix:frontend": "pnpm --filter frontend run lint-fix",
-    "fix:backend": "pnpm --filter backend run lint-fix",
+    "check:frontend": "pnpm --filter frontend run check",
+    "check:backend": "pnpm --filter backend run check",
     "type-check:frontend": "pnpm --filter frontend run type-check",
     "type-check:backend": "pnpm --filter backend run type-check",
-    "format": "pnpm run format:frontend && pnpm run format:backend",
-    "lint": "pnpm run lint:frontend && pnpm run lint:backend",
-    "fix": "pnpm run fix:frontend && pnpm run fix:backend",
+    "check": "pnpm run check:frontend && pnpm run check:backend",
     "type-check": "pnpm run type-check:frontend && pnpm run type-check:backend",
-    "test": "pnpm --filter frontend exec vitest run",
+    "test": "vitest",
+    "test:watch": "vitest --watch",
+    "test-coverage": "vitest run --coverage",
+    "test:be": "pnpm run test --project backend",
+    "test:fe": "pnpm run test --project frontend",
     "commit:lint": "pnpm exec commitlint --edit $1"
   },
   "devDependencies": {
     "@biomejs/biome": "^2.0.6",
     "@commitlint/cli": "^19.8.1",
     "@commitlint/config-conventional": "^19.8.1",
+    "@vitest/coverage-v8": "^3.2.4",
     "backend": "workspace:*",
     "commitizen": "^4.3.1",
     "cz-conventional-changelog": "^3.3.0",
     "frontend": "workspace:*",
-    "lefthook": "^1.11.16"
+    "lefthook": "^1.11.16",
+    "vitest": "^3.2.4"
   },
   "config": {
     "commitizen": {

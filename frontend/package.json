@@ -1,14 +1,13 @@
 {
   "name": "frontend",
   "version": "1.0.0",
-  "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "lint-format": "pnpm exec biome format --write ./src",
-    "lint-fix": "pnpm exec biome lint --write ./src",
-    "lint-check": "pnpm exec biome check --write ./src",
+    "format": "pnpm exec biome format --write ./src",
+    "lint": "pnpm exec biome lint --write ./src",
+    "check": "pnpm exec biome check --write ./src",
     "type-check": "tsc --noEmit"
   },
   "dependencies": {

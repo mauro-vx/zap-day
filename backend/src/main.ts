@@ -1,26 +1,27 @@
-import { createServer } from "node:http";
-import { AppModule } from "./app.module";
-import { Core } from "./core/core.module";
+import { AppModule } from "@/app.module";
 
-async function bootstrap() {
-	Core.Db.init();
-	const db = Core.Db.get();
-	await Core.Db.setup(db);
-	await Core.Db.test();
+const PORT = Number(process.env.PORT) || 5000;
 
-	const server = createServer((req, res) => {
-		for (const route of AppModule.routes) {
-			if (req.method === route.method && req.url === route.path) {
-				return route.handler(req, res);
-			}
-		}
+/**
+ * Initializes and starts the application by bootstrapping the necessary modules.
+ *
+ * This method creates an instance of the application's main module, initializes it,
+ * and starts the server listening on the specified port. If an error occurs during
+ * initialization or startup, the process will exit with an error code.
+ *
+ * @return A promise that resolves when the application is successfully initialized and listening, or rejects if an error occurs.
+ */
+export async function bootstrap() {
+  const app = new AppModule();
 
-		res.writeHead(404).end("Not Found");
-	});
-
-	server.listen(3000, () => Core.Logger.log("Server running on 3000"));
+  try {
+    console.log("Bootstrapping application...");
+    await app.init();
+    app.listen(PORT);
+  } catch (err) {
+    console.error("Failed to start application:", err);
+    process.exit(1);
+  }
 }
 
-bootstrap().catch((err) => {
-	console.error("Unexpected error occurred:", err);
-});
+bootstrap();

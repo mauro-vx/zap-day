@@ -1,0 +1,42 @@
+### GET request to example server
+GET https://examples.http-client.intellij.net/get
+    ?generated-in=WebStorm
+
+### GET user test
+GET http://127.0.0.1:5000/users
+
+### GET user with ID test
+GET http://127.0.0.1:5000/users
+Content-Type: application/json
+
+{ "id": 22 }
+
+### Create new User
+POST http://127.0.0.1:5000/auth/register
+Content-Type: application/json
+
+{
+  "id": 22,
+  "email": "example@example.com",
+  "password": "secure_password"
+}
+
+### Login User
+POST http://127.0.0.1:5000/auth/login
+Content-Type: application/json
+
+{
+  "email": "example@example.com",
+  "password": "secure_password"
+}
+
+### Refresh Token
+POST http://127.0.0.1:5000/auth/refresh
+Content-Type: application/json
+
+{
+  "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImVtYWlsIjoiZXhhbXBsZUBleGFtcGxlLmNvbSIsImlhdCI6MTc1MzIwMzgxMywiZXhwIjoxNzUzODA4NjEzfQ.nKsgBx8vAZocMCebnyHlzzA24uNi_23TeRbBZsDT5tA"
+}
+
+
+

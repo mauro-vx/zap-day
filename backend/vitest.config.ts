@@ -12,5 +12,6 @@ export default defineConfig({
     name: 'backend',
     environment: 'node',
     include: ['src/**/*.test.ts'],
+    watch: false,
   }
 })

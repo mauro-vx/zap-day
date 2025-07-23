@@ -12,8 +12,8 @@
     "test": "vitest",
     "test:watch": "vitest --watch",
     "test-coverage": "vitest run --coverage",
-    "test:be": "pnpm run test --project backend",
-    "test:fe": "pnpm run test --project frontend",
+    "test:be": "pnpm --filter backend run test",
+    "test:fe": "pnpm --filter frontend run test",
     "commit:lint": "pnpm exec commitlint --edit $1"
   },
   "devDependencies": {

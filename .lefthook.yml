@@ -1,6 +1,6 @@
 pre-commit:
   jobs:
-    - name: lint frontend
+    - name: lint code
       run: pnpm exec biome check --write --no-errors-on-unmatched --files-ignore-unknown=true {staged_files} && git add {staged_files}
       stage_fixed: true
 
@@ -24,9 +24,9 @@ pre-push:
     tests-frontend:
       files: git diff --name-only origin/master...HEAD
       glob: "frontend/src/**/*"
-      run: pnpm run test:frontend
+      run: pnpm run test:fe
 
     tests-backend:
       files: git diff --name-only origin/master...HEAD
       glob: "backend/src/**/*"
-      run: pnpm run test:backend
+      run: pnpm run test:be
